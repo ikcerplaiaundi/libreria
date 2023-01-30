@@ -28,7 +28,7 @@ public void eliminarLibro(int id) {
 	try {
 		
 		Statement st = con.createStatement();
-		String sentDELETE = "DELETE FROM arboles `libros` id ='" + id + "'";
+		String sentDELETE = "DELETE FROM `libros` id ='" + id + "'";
 		st.executeUpdate(sentDELETE);
 
 	} catch (SQLException e) {
@@ -42,8 +42,8 @@ public Libro getLibro(int id) throws SQLException {
 	ResultSet resultado = st.executeQuery(sentSELECT);
 	libro.setId_libro(resultado.getInt(1));
 	libro.setTitulo(resultado.getString(2));
-	libro.setAutor(resultado.getString(2));
-	libro.setNum_pag(resultado.getInt(2));
+	libro.setAutor(resultado.getString(3));
+	libro.setNum_pag(resultado.getInt(4));
 	return libro;
 }
 }
