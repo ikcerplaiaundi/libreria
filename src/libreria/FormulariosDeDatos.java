@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class FormulariosDeDatos {
 public Libro pedirDatosLibro(Scanner scan) {
 	Libro libro=new Libro();
-	System.out.println("inreste estos datos entre comas \",\" \r\n"+libro.toString());
+	System.out.println("inreste estos datos entre comas \",\" \r\n"+libro.toString()
+	+ "\r\n (el id se corregira automaticamente)\r\n");
 	
 	String[] resultado= scan.nextLine().split(",");
 	libro.setId_libro(Integer.parseInt(resultado[1]));

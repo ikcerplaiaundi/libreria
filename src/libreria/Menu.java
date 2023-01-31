@@ -14,12 +14,16 @@ public class Menu {
   Menu prestamos:
    Realizar préstamo
 */
+	
+public static final int GESTIONAR_LIBRO =1;
+public static final int GESTIONAR_SOCIO =2;
+public static final int GESTIONAR_PRESTAMOS =3;	
 public static final int SALIR =4;
 public static void menuprincipal(){
-	System.out.println("  1 Gestionar Libros\r\n"
-			+ "  2 Gestionar Socios\r\n"
-			+ "  3 Gestionar Prestamos\r\n"
-			+ "  "+SALIR+" SALIR");
+	System.out.println(" Gestionar Libros\r\n"
+			+ GESTIONAR_LIBRO+" Gestionar Socios\r\n"
+			+ GESTIONAR_SOCIO+" Gestionar Prestamos\r\n"
+			+ SALIR+" SALIR\r\n");
 }
 
 
@@ -27,18 +31,20 @@ public static final int INSERTAR_LIBRO =1;
 public static final int ELIMINAR_LIBRO =2;
 public static final int VER_LIBROS =3;
 public static void menuLibros(){
-	System.out.println("  1 Insertar libro\r\n"
-			+ "  2 Eliminar libro\r\n"
-			+ "  3 Ver libros\r\n"
-			+ "  "+SALIR+" SALIR");
+	System.out.println("  "+INSERTAR_LIBRO+" Insertar libro\r\n"
+			+ "  "+ELIMINAR_LIBRO+" Eliminar libro\r\n"
+			+ "  "+VER_LIBROS+" Ver libros\r\n"
+			+ "  "+SALIR+" SALIR\r\n");
 }
+public static final int VER_SOCIOS =1;
 public static void menuSocios(){
-	System.out.println("  1 Ver socios\r\n" 
-			+ "  "+SALIR+" SALIR");
+	System.out.println("  "+VER_SOCIOS+" Ver socios\r\n" 
+			+ "  "+SALIR+" SALIR\r\n");
 }
+public static final int REALIZAR_PRESTAMOS =1;
 public static void menuPrestamos(){
-	System.out.println("  1 Realizar préstamo"
-			+ "  "+SALIR+" SALIR");
+	System.out.println("  "+REALIZAR_PRESTAMOS+" Realizar préstamo\r\n"
+			+ "  "+SALIR+" SALIR\r\n");
 }
 	
 	
