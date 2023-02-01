@@ -13,7 +13,7 @@ public static void run(Scanner scan) throws SQLException {
 		Menu.menuLibros();
 		opcion= Integer.parseInt(scan.nextLine());
 		
-		System.out.println("------MENU-------");
+		System.out.println("------MENU libros-------");
 		switch (opcion) {
 		case Menu.INSERTAR_LIBRO:
 			System.out.println("primera opcion seleccionada\n");
@@ -26,7 +26,7 @@ public static void run(Scanner scan) throws SQLException {
 			break;
 		case Menu.VER_LIBROS:
 			System.out.println("tercera opcion seleccionada\n");
-			visor.mostrarLibros(null);
+			visor.mostrarLibros(GBBDD.descargarlibros());
 			break;
 		case Menu.SALIR:
 			System.out.println("ADIOS");
@@ -39,4 +39,6 @@ public static void run(Scanner scan) throws SQLException {
 		
 	}while(opcion!=Menu.SALIR);
 }
+
+
 }

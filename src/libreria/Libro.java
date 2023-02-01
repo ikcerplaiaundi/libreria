@@ -29,7 +29,7 @@ public int getNum_pag() {
 public void setNum_pag(int num_pag) {
 	this.num_pag = num_pag;
 }
-@Override
+
 public String toString() {
 	return "Libro [id_libro=" + id_libro + ", titulo=" + titulo + ", autor=" + autor + ", num_pag=" + num_pag + "]";
 }

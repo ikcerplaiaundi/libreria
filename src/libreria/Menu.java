@@ -36,9 +36,13 @@ public static void menuLibros(){
 			+ "  "+VER_LIBROS+" Ver libros\r\n"
 			+ "  "+SALIR+" SALIR\r\n");
 }
-public static final int VER_SOCIOS =1;
+public static final int INSERTAR_SOCIOS =1;
+public static final int ELIMINAR_SOCIOS =2;
+public static final int VER_SOCIOS =3;
 public static void menuSocios(){
-	System.out.println("  "+VER_SOCIOS+" Ver socios\r\n" 
+	System.out.println("  "+INSERTAR_SOCIOS+" Insertar socio\r\n"
+			+ "  "+ELIMINAR_SOCIOS+" Eliminar socio\r\n"
+			+ "  "+VER_SOCIOS+" Ver socios\r\n"
 			+ "  "+SALIR+" SALIR\r\n");
 }
 public static final int REALIZAR_PRESTAMOS =1;
