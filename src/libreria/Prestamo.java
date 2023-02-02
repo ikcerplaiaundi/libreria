@@ -44,7 +44,7 @@ public class Prestamo {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-
+	
 	public String getPattern() {
 		return pattern;
 	}
