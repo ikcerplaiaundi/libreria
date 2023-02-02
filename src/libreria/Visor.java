@@ -19,7 +19,15 @@ public static void mostrarSocios(ArrayList<Socio> socios) {
 public static void mostrarSocio(Socio socio) {
 	System.out.println(socio.toString());
 }
-public static void mostrarMensaje(String mensaje) {
-	System.out.println(mensaje);
+public static void mostrarPrestamos(ArrayList<Prestamo> Prestamos) {
+	for (Prestamo Prestamo : Prestamos) {
+		System.out.println(Prestamo.toString());
+	}
+}
+public static void mostrarPrestamo(Prestamo Prestamo) {
+	System.out.println(Prestamo.toString());
+}
+public static void mostrarMensaje(String Prestamo) {
+	System.out.println(Prestamo);
 }
 }

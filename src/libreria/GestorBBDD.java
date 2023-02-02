@@ -1,9 +1,11 @@
 package libreria;
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 public class GestorBBDD extends Conector{
@@ -134,6 +136,73 @@ public ArrayList<Socio> descargarSocios() throws SQLException{
 			socio.setProvincia(resultado.getString(6));
 			socio.setDni(resultado.getString(6));
 			DATA.add(socio);
+		}
+	} catch (Exception e) {
+		System.out.println("descarga fallida");
+	}
+	
+	return DATA;
+	}
+//Prestamos
+
+public void insertarPrestamo(Prestamo prestamo) throws SQLException {
+	try {
+	PreparedStatement preparedSt;
+	
+	preparedSt = con.prepareStatement(
+	"INSERT INTO prestamos(id_libro, id_socio, fecha, devuelto) VALUES  (?,?,?,?)");
+	preparedSt.setInt(1, prestamo.getId_libro());
+	preparedSt.setInt(2, prestamo.getId_socio());
+	preparedSt.setString(3,  prestamo.getFechaString());
+	preparedSt.setInt(4, prestamo.getDevuelto());
+	preparedSt.execute();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+}
+public void eliminarPrestamo(int id) {
+	try {
+		
+		Statement st = con.createStatement();
+		String sentDELETE = "DELETE FROM `prestamo` WHERE id ='" + id + "'";
+		st.executeUpdate(sentDELETE);
+
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+}
+public Prestamo getPrestamo(int id) throws SQLException{
+	Prestamo prestamo=null;
+	try {
+		prestamo = new Prestamo();
+		Statement st = con.createStatement();
+		String sentSELECT = "SELECT `id_libro`, `id_socio`, `fecha`, `devuelto` FROM `prestamos` WHERE id="+id;
+		ResultSet resultado = st.executeQuery(sentSELECT);
+		prestamo.setId_libro(resultado.getInt(1));
+		prestamo.setId_socio(resultado.getInt(2));
+		prestamo.setFecha(resultado.getDate(3));
+		prestamo.setDevuelto(resultado.getInt(4));
+	} catch (ParseException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return prestamo;
+}
+public ArrayList<Prestamo> descargarPrestamos() throws SQLException{
+	ArrayList<Prestamo> DATA=new ArrayList<Prestamo>();
+	try {
+	
+	Statement st = con.createStatement();
+	String sentSELECT = "SELECT * FROM socios WHERE 1";
+	ResultSet resultado = st.executeQuery(sentSELECT);
+	
+		while (resultado.next()) {
+			Prestamo prestamo = new Prestamo();
+			prestamo.setId_libro(resultado.getInt(1));
+			prestamo.setId_socio(resultado.getInt(2));
+			prestamo.setFecha(resultado.getDate(3));
+			prestamo.setDevuelto(resultado.getInt(4));
+			DATA.add(prestamo);
 		}
 	} catch (Exception e) {
 		System.out.println("descarga fallida");
