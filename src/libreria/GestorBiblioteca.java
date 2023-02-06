@@ -28,7 +28,7 @@ public static void run() throws ClassNotFoundException, SQLException {
 		case Menu.GESTIONAR_PRESTAMOS:
 			System.out.println("tercera opcion seleccionada\n");
 			Menu.menuPrestamos();
-			System.out.println("NO AVILITADA\n");
+			GestorPrestamos.run(scan);
 			break;
 		case Menu.SALIR:
 			System.out.println("ADIOS");

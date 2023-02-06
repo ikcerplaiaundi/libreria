@@ -31,7 +31,7 @@ public void eliminarLibro(int id) {
 	try {
 		
 		Statement st = con.createStatement();
-		String sentDELETE = "DELETE FROM `libros` WHERE id ='" + id + "'";
+		String sentDELETE = "DELETE FROM `libros` WHERE id_libro ='" + id + "'";
 		st.executeUpdate(sentDELETE);
 
 	} catch (SQLException e) {
@@ -41,7 +41,7 @@ public void eliminarLibro(int id) {
 public Libro getLibro(int id) throws SQLException {
 	Libro libro= new Libro();
 	Statement st = con.createStatement();
-	String sentSELECT = "SELECT `id`, `titulo`, `autor`, `num_pag` FROM `libros` WHERE id="+id;
+	String sentSELECT = "SELECT `id`, `titulo`, `autor`, `num_pag` FROM `libros` WHERE id_libro="+id;
 	ResultSet resultado = st.executeQuery(sentSELECT);
 	libro.setId_libro(resultado.getInt(1));
 	libro.setTitulo(resultado.getString(2));
@@ -97,7 +97,7 @@ public void eliminarSocio(int id) {
 	try {
 		
 		Statement st = con.createStatement();
-		String sentDELETE = "DELETE FROM `socios` WHERE id ='" + id + "'";
+		String sentDELETE = "DELETE FROM `socios` WHERE id_socio ='" + id + "'";
 		st.executeUpdate(sentDELETE);
 
 	} catch (SQLException e) {
@@ -107,7 +107,7 @@ public void eliminarSocio(int id) {
 public Socio getSocio(int id) throws SQLException {
 	Socio socio= new Socio();
 	Statement st = con.createStatement();
-	String sentSELECT = "SELECT `id`, `nombre`, `apellido`, `direccion`, `poblacion`, `provincia`, `dni` FROM `socios` WHERE id="+id;
+	String sentSELECT = "SELECT `id`, `nombre`, `apellido`, `direccion`, `poblacion`, `provincia`, `dni` FROM `socios` WHERE id_socio="+id;
 	ResultSet resultado = st.executeQuery(sentSELECT);
 	socio.setId_socio(resultado.getInt(1));
 	socio.setNombre(resultado.getString(2));
@@ -164,7 +164,7 @@ public void eliminarPrestamo(int id) {
 	try {
 		
 		Statement st = con.createStatement();
-		String sentDELETE = "DELETE FROM `prestamo` WHERE id ='" + id + "'";
+		String sentDELETE = "DELETE FROM `prestamo` WHERE id_libro ='" + id + "'";
 		st.executeUpdate(sentDELETE);
 
 	} catch (SQLException e) {
@@ -176,7 +176,7 @@ public Prestamo getPrestamo(int id) throws SQLException{
 	try {
 		prestamo = new Prestamo();
 		Statement st = con.createStatement();
-		String sentSELECT = "SELECT `id_libro`, `id_socio`, `fecha`, `devuelto` FROM `prestamos` WHERE id="+id;
+		String sentSELECT = "SELECT `id_libro`, `id_socio`, `fecha`, `devuelto` FROM `prestamos` WHERE id_libro="+id;
 		ResultSet resultado = st.executeQuery(sentSELECT);
 		prestamo.setId_libro(resultado.getInt(1));
 		prestamo.setId_socio(resultado.getInt(2));
@@ -210,4 +210,15 @@ public ArrayList<Prestamo> descargarPrestamos() throws SQLException{
 	
 	return DATA;
 	}
+public void debolverPrestamo(int id) {
+	
+	try {
+		Statement st = con.createStatement();
+		String sentUPDATE = "UPDATE prestamos SET devuelto= 1 WHERE  id_libro =" + id ;
+		st.executeUpdate(sentUPDATE);
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+}
 }

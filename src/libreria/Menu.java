@@ -46,12 +46,10 @@ public static void menuSocios(){
 			+ "  "+SALIR+" SALIR\r\n");
 }
 public static final int REALIZAR_PRESTAMOS =1;
-public static final int ELIMINAR_PRESTAMOS =2;
-public static final int VER_PRESTAMOS =3;
-public static final int DEVOLVER_LIBRO =5;
+public static final int VER_PRESTAMOS =2;
+public static final int DEVOLVER_LIBRO =3;
 public static void menuPrestamos(){
 	System.out.println("  "+REALIZAR_PRESTAMOS+" Realizar préstamo\r\n"
-			+ "  "+ELIMINAR_PRESTAMOS+" Eliminar socio\r\n"
 			+ "  "+VER_SOCIOS+" Ver socios\r\n"
 			+ "  "+SALIR+" SALIR\r\n"
 			+ "  "+DEVOLVER_LIBRO+" devolver libro\r\n");

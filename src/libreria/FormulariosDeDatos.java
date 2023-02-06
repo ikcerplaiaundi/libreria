@@ -79,6 +79,7 @@ public class FormulariosDeDatos {
 		return resultado;
 
 	}
+	
 
 	public Prestamo pedirDatosPrestamo(Scanner scan) {
 		Prestamo prestamo = null;
